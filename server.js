@@ -53,6 +53,14 @@ const habits = [
 ];
 
 // GET - /api/habits - get all habits
+app.get("/api/habits", (req, res) => {
+    try {
+        res.json(habits);
+    } catch (error) {
+        res.status(500).send('Internal Server Error');
+        console.error(error);
+    }
+});
 
 // GET - /api/habits/:id - get a habit by id
 
