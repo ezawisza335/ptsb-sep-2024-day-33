@@ -60,7 +60,7 @@ const habits = [
 
 // PUT - /api/habits/:id - update a habit by id
 
-// PATCH - /api/habits/:id - update a habit by id
+// PATCH - /api/habits/:id - update a habit by id <- BONUS
 
 // DELETE - /api/habits/:id - delete a habit by id
 
@@ -72,7 +72,15 @@ const habits = [
 
 // GET - /api/habits?frequency=daily - get all habits by frequency
 
+// POST - /api/set-cookie - set a cookie
+
+// GET - /api/get-cookie - retrieve a cookie
+
+// DELETE - /api/delete-cookie - delete a cookie
+
+// GET - /api/habits/filter - use cookie for customization
+
 // start the server
 app.listen(PORT, () => {
-    console.log('Server started on port 3000');
+    console.log('Server started on port ' + PORT);
 });
