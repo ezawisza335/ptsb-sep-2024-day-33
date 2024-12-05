@@ -63,6 +63,29 @@ app.get("/api/habits", (req, res) => {
 });
 
 // GET - /api/habits/:id - get a habit by id
+app.get("/api/habits/:id", (req, res) => {
+    try {
+        // capture the id from the request
+        const id = req.params.id;
+
+        // find the habit in the array by id
+        const habit = habits.find(
+            habit => habit.id === parseInt(id)
+        )
+
+        // if not found, return a 404
+        if (!habit) {
+            res.status(404).send('Habit not found');
+            return;
+        }
+
+        // if found, return the habit
+        res.json(habit);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+})
 
 // POST - /api/habits - create a new habit
 
