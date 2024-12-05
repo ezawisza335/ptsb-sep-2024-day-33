@@ -88,6 +88,34 @@ app.get("/api/habits/:id", (req, res) => {
 })
 
 // POST - /api/habits - create a new habit
+app.post("/api/habits", (req, res) => {
+    try {
+        const id = habits.length + 1;
+
+        // destructuring the request body
+        const { name, description, frequency, completed } = req.body;
+
+        // create a new habit object
+        const newHabit = {
+            id,
+            name,
+            description,
+            frequency,
+            completed
+        }
+
+        // add the new habit to the array
+        habits.push(newHabit);
+
+        // return the new habit
+        res.status(201).json(newHabit);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+})
+
+
 
 // PUT - /api/habits/:id - update a habit by id
 
