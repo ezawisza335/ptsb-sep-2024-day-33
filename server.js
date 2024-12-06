@@ -115,15 +115,84 @@ app.post("/api/habits", (req, res) => {
     }
 })
 
-
-
 // PUT - /api/habits/:id - update a habit by id
+app.put("/api/habits/:id", (req, res) => {
+    try {
+        const id = parseInt(req.params.id);
 
+        // find the habit in the array by id
+        const habit = habits.find(
+            habit => habit.id === parseInt(id)
+        )
+
+        // if not found, return a 404
+        if (!habit) {
+            res.status(404).send('Habit not found');
+            return;
+        }
+        // destructuring the request body
+        const { name, description, frequency, completed } = req.body;
+
+        const updatedHabit = {
+            id,
+            name,
+            description,
+            frequency,
+            completed
+        }
+
+        // find the index of the habit in the array
+        const index = habits.indexOf(habit);
+
+        // update the habit in the array
+        habits[index] = updatedHabit;
+
+        // return the updated habit
+        res.status(200).json(updatedHabit);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+})
 // PATCH - /api/habits/:id - update a habit by id <- BONUS
+app.patch("/api/habits/:id", (req, res) => {
+    res.send('PATCH - /api/habits/:id');
+})
 
 // DELETE - /api/habits/:id - delete a habit by id
+app.delete("/api/habits/:id", (req, res) => {
+    try {
+        const id = parseInt(req.params.id);
+
+        // find the habit in the array by id
+        const habit = habits.find(
+            habit => habit.id === parseInt(id)
+        )
+
+        // if not found, return a 404
+        if (!habit) {
+            res.status(404).send('Habit not found');
+            return;
+        }
+
+        // find the index of the habit in the array
+        const index = habits.indexOf(habit);
+
+        // remove the habit from the array
+        habits.splice(index, 1);
+
+        // return the deleted habit
+        res.status(200).json(habit);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+})
 
 // DELETE - /api/habits - delete all habits
+app.delete("/api/habits", (req, res) => {
+    res.send('DELETE - /api/habits');
+})
 
 // GET - /api/habits/completed - get all completed habits
 
