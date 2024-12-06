@@ -3,3 +3,55 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  background-color: lightgray;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1 {
+  color: whitesmoke;
+  padding: 3px;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+#form-container1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  background-color: rebeccapurple;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: whitesmoke;
+  margin: 0 auto;
+}
+
+#habit-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: whitesmoke;
+  padding: 40px;
+}
+
+input {
+  margin: 5px;
+  padding: 5px;
+}
+
+.completedBox {
+  margin: 0.5em 0 0.8em 0;
+  padding: 5px;
+  text-align: center;
+}
+
+ul {
+}

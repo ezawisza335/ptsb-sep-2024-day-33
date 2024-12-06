@@ -7,8 +7,48 @@
     <title>Habit Tracker</title>
   </head>
   <body>
-    <h1>Habit Tracker</h1>
-    <div id="app"></div>
+    <div id="app">
+      <div id="form-container1">
+        <h1>Habit Tracker</h1>
+        <form id="habit-form">
+          <input
+            type="text"
+            id="habit-name"
+            placeholder="Enter habit name"
+            required
+          />
+          <input
+            type="text"
+            id="habit-description"
+            placeholder="Description"
+            required
+          />
+          <input
+            type="text"
+            id="habit-frequency"
+            placeholder="Frequency"
+            required
+          />
+          <div class="completedBox">
+            <input type="checkbox" label="completed" id="habit-completed" />
+            Completed?
+          </div>
+          <button type="submit">Add Habit</button>
+        </form>
+        <div id="form-container">
+          <h2>Search by ID</h2>
+          <form id="search-form">
+            <input type="text" id="search-id" placeholder="Search by ID" />
+            <button type="submit">Search</button>
+          </form>
+        </div>
+        <div id="habits-container">
+          <h2>Habits</h2>
+          <button id="getHabits">Get All Habits</button>
+          <ul id="habits-list"></ul>
+        </div>
+      </div>
+    </div>
     <script src="./script.js"></script>
   </body>
 </html>
